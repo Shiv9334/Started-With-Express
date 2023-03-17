@@ -1,0 +1,26 @@
+Q.1 Why are we using Express JS ? Any reasons?
+Ans. Express.js is a popular Node.js web application framework used for building fast and scalable web applications. 
+     There are several reasons why developers choose to use Express.js:
+     a. Minimal and flexible
+     b. middleware
+     c. Routing
+     d. performance
+
+Q.2 What are middlewares ?
+Ans. middleware is a function that has access to the request and response objects, and can modify them or perform actions based on them.
+
+Q.3 What is next used for.
+Ans It allows  the req to continue to next middleware in line.
+
+Q.4 What is res.send used for?
+Ans. It  method used to send a response back to the client that made a request to the server.
+
+Q.5 If i do res.send('<h1> hello to node js </h1>') . What will be the content-type header equal to.
+Ans. text/html.
+
+Q.6 If I do res.send( { key1: value }) . What will be the content-type header equal to.
+Ans. application/json.
+
+Q.7 What does app.listen(3000) do behind the scenes ?
+Ans. it starts a web server that listens for incoming HTTP requests on port 3000.
+
