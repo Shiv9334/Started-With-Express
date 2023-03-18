@@ -1,28 +1,18 @@
-const http = require('http');
-const express = require('express');
-const { text } = require('express');
-const bodyParser = require('body-parser');
-
+const express = require("express");
 const app = express();
 
-app.use(bodyParser.urlencoded({extended : false}));
+const bodyParser = require("body-parser");
 
+const adminRoute = require("./routes/admin");
+const shopRoute = require("./routes/shop");
 
-app.use('/add-product',(req,res,next) => {
-    console.log('add-product');
-    res.send('<form action="/product" method ="POST"><input type="text" name ="title"><button type = "submit">Add product</button></input></form> ');
-})
-app.use('/product',(req,res, next) => {
-    console.log(req.body);
-    res.redirect('/')
-})
-app.use('/', (req, res, next) => {
-    console.log('This always runs');
-   res.send('Welcome to express js page');
-    next();
-})
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use("/admin", adminRoute);
+app.use("/shop", shopRoute);
 
-const server = http.createServer(app);
+app.use((req, res, next) => {
+  res.status(404).send("<h1> PAGE nOT Found </h1>");
+});
 
-server.listen(8000);
+app.listen(8000);
